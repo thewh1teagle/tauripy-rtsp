@@ -13,7 +13,7 @@ def on_command(message: bytes):
     print(f"Received: {message.decode()}")
     return json.dumps({'message': 'Hello from Python!'}).encode()
 
-dist_path = Path(__file__).parent.joinpath('ui')
+dist_path = './ui'
 tauric = Tauri("com.tauric.dev", "tauric")
 tauric.mount_frontend(dist_path)
 tauric.on_command(on_command)

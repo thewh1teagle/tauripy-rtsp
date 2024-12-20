@@ -12,7 +12,7 @@ wget http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerE
 ffmpeg -re -stream_loop -1 -i video.mp4 -c copy -f rtsp -rtsp_transport tcp rtsp://127.0.0.1:8554/stream
 # Play
 uv sync
-uv run main.py
+uv run src/main.py
 ```
 
 Also you can play with 
