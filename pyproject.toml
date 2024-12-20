@@ -1,0 +1,11 @@
+[project]
+name = "tauripy-rtsp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flask>=3.1.0",
+    "opencv-python>=4.10.0.84",
+    "tauripy>=0.1.0b10",
+]
