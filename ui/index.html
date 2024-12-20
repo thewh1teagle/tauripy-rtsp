@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJPEG Stream</title>
+    <style>
+        /* Make the page fill the screen */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #mjpegStream {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- MJPEG stream directly in img tag -->
+    <img id="mjpegStream" src="http://127.0.0.1:5000/mjpeg" alt="MJPEG Stream" />
+</body>
+</html>
