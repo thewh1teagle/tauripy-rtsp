@@ -9,15 +9,7 @@ from flask import Flask, Response
 rtsp_url = "rtsp://127.0.0.1:8554/stream"
 
 app = Flask(__name__)
-@app.route("/")
-def hello_world():
-    return """
-    <body style="background: black;">
-        <div style="width: 240px; margin: 0px auto;">
-            <img src="/mjpeg" />
-        </div>
-    </body>
-    """
+
 # setup camera and resolution
 cam = cv2.VideoCapture(rtsp_url)
 cam.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
@@ -28,6 +20,7 @@ def gather_img():
         _, img = cam.read()
         _, frame = cv2.imencode('.jpg', img)
         yield (b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + frame.tobytes() + b'\r\n')
+
 @app.route("/mjpeg")
 def mjpeg():
     return Response(gather_img(), mimetype='multipart/x-mixed-replace; boundary=frame')
